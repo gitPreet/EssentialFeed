@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2941D1B926B547800022062E /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2941D1AF26B547800022062E /* EssentialFeed.framework */; };
-		2941D1BE26B547800022062E /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941D1BD26B547800022062E /* EssentialFeedTests.swift */; };
 		2941D1C026B547800022062E /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 2941D1B226B547800022062E /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2941D1CC26B5479C0022062E /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941D1CB26B5479C0022062E /* FeedItem.swift */; };
 		2941D1D026B548660022062E /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941D1CF26B548660022062E /* FeedLoader.swift */; };
+		2941D1DB26B54B2F0022062E /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2941D1DA26B54B2F0022062E /* RemoteFeedLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,10 +29,10 @@
 		2941D1B226B547800022062E /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		2941D1B326B547800022062E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2941D1B826B547800022062E /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2941D1BD26B547800022062E /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
 		2941D1BF26B547800022062E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2941D1CB26B5479C0022062E /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		2941D1CF26B548660022062E /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		2941D1DA26B54B2F0022062E /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +85,8 @@
 		2941D1BC26B547800022062E /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				2941D1BD26B547800022062E /* EssentialFeedTests.swift */,
 				2941D1BF26B547800022062E /* Info.plist */,
+				2941D1DA26B54B2F0022062E /* RemoteFeedLoaderTests.swift */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
@@ -165,6 +165,7 @@
 					};
 					2941D1B726B547800022062E = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -218,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2941D1BE26B547800022062E /* EssentialFeedTests.swift in Sources */,
+				2941D1DB26B54B2F0022062E /* RemoteFeedLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = EssentialFeedTests/Info.plist;
@@ -417,6 +419,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Preetham.EssentialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -425,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = EssentialFeedTests/Info.plist;
