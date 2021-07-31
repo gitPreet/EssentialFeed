@@ -13,7 +13,7 @@ class RemoteFeedLoaderTests: XCTestCase {
     func test_initDoesNotRequestDataFromURL() {
         let (_, client) = makeSUT()
 
-        XCTAssertNil(client.requestedURL)
+        XCTAssertTrue(client.requestedURLs.isEmpty)
     }
 
     func test_load_requestsDataFromURL() {
@@ -22,9 +22,19 @@ class RemoteFeedLoaderTests: XCTestCase {
 
         sut.load()
 
-        XCTAssertEqual(client.requestedURL, url)
+        XCTAssertEqual(client.requestedURLs, [url])
     }
 
+    func test_loadTwice_requestsDataFromURLTwice() {
+        let url = URL(string: "https://another-url.com")!
+        let (sut, client) = makeSUT(url: url)
+
+        sut.load()
+        sut.load()
+
+        XCTAssertEqual(client.requestedURLs, [url, url])
+    }
+    
     // MARK: - Helpers
 
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
@@ -34,13 +44,13 @@ class RemoteFeedLoaderTests: XCTestCase {
     }
 
     class HTTPClientSpy: HTTPClient {
-        //we have started moving test logic to a seperate type. So production code is more generic.
 
-        var requestedURL: URL?  //HTTPClient will be production code, I do not want this requestedURL in production.
-        //It is only used for test purposes.
+        var requestedURL: URL?
+        var requestedURLs = [URL]()
 
         func get(from url: URL) {
             requestedURL = url
+            requestedURLs.append(url)
         }
     }
 }
